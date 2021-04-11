@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="agenic" translate="label" sortOrder="10">
+            <label>Agenic</label>
+        </tab>
+        <section id="gstindia" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Gst India</label>
+            <tab>agenic</tab>
+            <resource>Agenic_Gst::gst_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Gst Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="company_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Company Name as per GST</label>
+                    <comment>Company Name as per GST.</comment>
+                </field>
+                <field id="gst_number" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>GST NO</label>
+                    <comment>GST No.</comment>
+                </field>
+                <field id="cin_number" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>CIN NO</label>
+                    <comment>CIN No.</comment>
+                </field>
+                <field id="pan_number" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Pan NO</label>
+                    <comment>Pan No.</comment>
+                </field>
+                <field id="default_gst" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default GST Rate</label>
+                    <source_model>Agenic\Gst\Model\Config\Source\GstRate</source_model>
+                    <comment>Set minimum gst rate in %.</comment>
+                </field>
+                <field id="default_minprice" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Minimum Price for GST</label>
+                    <comment>Set Threashold Product price for Gst .</comment>
+                </field>
+                <field id="gstrate_threashold" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>GST Rate above Threshold in %</label>
+                    <source_model>Agenic\Gst\Model\Config\Source\GstRate</source_model>
+                    <comment>Set GST Rate in above threashold Product Price .</comment>
+                </field>
+                <field id="signature_pdf" translate="label" type="image" setOrder="1" showInDefault="1" showInStore="0" showInWebsite="0">
+                    <label>Signature Image for PDF</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">logo</upload_dir>
+                    <base_url type="media" scope_info="1">logo</base_url>
+                    <comment><![CDATA[Allowed file types: jpeg, gif, png.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
